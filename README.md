@@ -1,28 +1,32 @@
 # FasterTask
 the simplest way to Make your Tasks Concurrent!
-FasterTask组件 (java)
-
-为什么写个组件？
+![Image text](https://github.com/lemon-simple/Faster-Tasks/blob/master/FasterTask.png)
+##为什么写个组件？
 - 为了方便串行执行转换为并行执行，大幅提升业务代码的执行速度
 当我们写业务代码时,经常会遇到需要提升运行速度的场景，这时候会想到并发编程，但是有很多coder并不太熟悉并发，为了避免引入风险，因此望而却步.
 对于并发不是很熟悉的coder，我希望能够提供一个安全、 快速、轻量级并简单易用的组件，能够快速让代码从串行执行变为并行执行，大幅提升业务代码的执行速度。
 
-为什么要并行执行？
+##为什么要并行执行？
+
 1.充分利用多核处理器 
+
 一个进程下会有多个线程，一个线程的运行会占用一个处理器核心。
 现在多核cpu已经司空见惯，如果我们编程还是单线程，那么多核cpu中只会有一个核心被使用，
 其他核心被闲置。为了重复利用cpu多核资源，提高运算能力，我们使任务并行，同一时间可以在cpu的多核上运行多个任务。
+
 2.更快的响应体验
 比如,催收项目跑批数据隐射，使用并发，原来30分钟执行成功的任务，可缩短10分钟内.
 再比如，我们请求一个页面，如果是单线程，会挨个获取这个页面上的视频、图片、文字等等资源；如果是多线程，会并发回去这个页面上的资源，以缩短页面加载的时间。更快的速度，更好的用户体验。
 
-如何使用?
+##如何使用?
 
 使用demo展示
 Demo
+
+```
 /*
  */
-package com.omniprimeinc.faster;
+package com.lemon.faster;
  
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,9 +40,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
  
-import com.omniprimeinc.faster.concurrent.Executor;
-import com.omniprimeinc.faster.concurrent.task.IdentityTaskAction;
-import com.omniprimeinc.faster.concurrent.task.TaskAction;
+import com.lemon.faster.concurrent.Executor;
+import com.lemon.faster.concurrent.task.IdentityTaskAction;
+import com.lemon.faster.concurrent.task.TaskAction;
  
 /**
  *
@@ -314,5 +318,4 @@ public class Demo {
     }
  
 }
-
-![Image text](https://github.com/lemon-simple/Faster-Tasks/blob/master/FasterTask.png)
+```
