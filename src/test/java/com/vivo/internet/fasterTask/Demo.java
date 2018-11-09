@@ -1,5 +1,5 @@
 
-package com.lemon.faster;
+package com.vivo.internet.fasterTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,9 +13,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.lemon.faster.concurrent.Executor;
-import com.lemon.faster.concurrent.task.IdentityTaskAction;
-import com.lemon.faster.concurrent.task.TaskAction;
+import com.vivo.internet.fasterTask.concurrent.Executor;
+import com.vivo.internet.fasterTask.concurrent.task.IdentityTaskAction;
+import com.vivo.internet.fasterTask.concurrent.task.TaskAction;
 
 /**
  * @author zhangsh

@@ -1,4 +1,4 @@
-package com.lemon.faster.concurrent.task;
+package com.vivo.internet.fasterTask.concurrent.task;
 
 /**
  * 任务回调封装
