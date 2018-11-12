@@ -6,9 +6,9 @@ package com.vivo.internet.fasterTask.concurrent;
  */
 public class DefaultTaskProcessFactory implements TaskProcessFactory {
 
-	private static int DEFAULT_CORE_SIZE = Runtime.getRuntime().availableProcessors() + 2;
+	private static int DEFAULT_CORE_SIZE = Runtime.getRuntime().availableProcessors() * 2;
 
-	private static int DEFAULT_POOL_SIZE = DEFAULT_CORE_SIZE * 3;
+	private static int DEFAULT_POOL_SIZE = DEFAULT_CORE_SIZE * 4;
 
 	private int coreSize = DEFAULT_CORE_SIZE;
 

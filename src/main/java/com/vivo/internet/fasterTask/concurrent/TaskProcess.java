@@ -6,12 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -53,8 +52,7 @@ public class TaskProcess {
 	}
 
 	private void createThreadPool() {
-		BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(coreSize);
-		executor = new ThreadPoolExecutor(coreSize, poolSize, 60, TimeUnit.SECONDS, queue,
+		executor = new ThreadPoolExecutor(coreSize, poolSize, 60, TimeUnit.SECONDS, new SynchronousQueue<Runnable>(),
 				new DefaultThreadFactory(domain), new ThreadPoolExecutor.CallerRunsPolicy());
 	}
 
@@ -114,8 +112,8 @@ public class TaskProcess {
 		}
 
 		try {
-			latch.await(10, TimeUnit.SECONDS);// block if all tasks be finished!
-		} catch (InterruptedException e) {
+			latch.await(30, TimeUnit.SECONDS);// block if all tasks be finished!
+		} catch (Exception e) {
 			logger.info("Executing Task is interrupt.");
 		}
 
